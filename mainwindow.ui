@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>594</width>
+    <height>413</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>泊车管理系统</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QWidget" name="verticalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>40</y>
+      <width>101</width>
+      <height>291</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QPushButton" name="pbtpark">
+       <property name="text">
+        <string>泊车</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="verticalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pbtleave">
+       <property name="text">
+        <string>取车</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="verticalSpacer_3">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pbtsearch">
+       <property name="text">
+        <string>查询</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="verticalSpacer">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pbtbook">
+       <property name="text">
+        <string>预约</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QLabel" name="lblevel">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>40</y>
+      <width>81</width>
+      <height>33</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>NULL</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbfeebig">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>90</y>
+      <width>41</width>
+      <height>33</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pbtset">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>40</y>
+      <width>101</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>调整</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="verticalLayoutWidget_2">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>197</y>
+      <width>160</width>
+      <height>131</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <item>
+      <widget class="QLCDNumber" name="lcdleft"/>
+     </item>
+     <item>
+      <widget class="QLCDNumber" name="lcdempty"/>
+     </item>
+     <item>
+      <widget class="QLCDNumber" name="lcdbook">
+       <property name="intValue" stdset="0">
+        <number>1000</number>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>140</y>
+      <width>114</width>
+      <height>33</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>总车位：</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbtotal">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>140</y>
+      <width>114</width>
+      <height>33</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>90</y>
+      <width>114</width>
+      <height>33</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>90</y>
+      <width>21</width>
+      <height>33</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>/</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbfeesmall">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>90</y>
+      <width>51</width>
+      <height>33</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_10">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>90</y>
+      <width>101</width>
+      <height>33</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>大/小车</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_7">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>244</y>
+      <width>108</width>
+      <height>33</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>空车位：</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_8">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>297</y>
+      <width>135</width>
+      <height>33</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>已约车位：</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>190</y>
+      <width>135</width>
+      <height>33</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>剩余车位：</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>37</y>
+      <width>162</width>
+      <height>33</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>停车场等级：</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>90</y>
+      <width>135</width>
+      <height>33</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>收费标准：</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>594</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu_1">
+    <property name="title">
+     <string>选项(&amp;S) </string>
+    </property>
+    <addaction name="actionlogout"/>
+    <addaction name="actionexit"/>
+    <addaction name="actioninit"/>
+   </widget>
+   <widget class="QMenu" name="menu_2">
+    <property name="title">
+     <string>帮助(&amp;H)</string>
+    </property>
+    <addaction name="actionabout"/>
+   </widget>
+   <widget class="QMenu" name="menu_D">
+    <property name="title">
+     <string>用户（&amp;D）</string>
+    </property>
+    <addaction name="actionpk"/>
+    <addaction name="actionadduser"/>
+   </widget>
+   <addaction name="menu_1"/>
+   <addaction name="menu_D"/>
+   <addaction name="menu_2"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionlogout">
+   <property name="text">
+    <string>注销(&amp;O)</string>
+   </property>
+   <property name="autoRepeat">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="actionpk">
+   <property name="text">
+    <string>修改用户名和密码(&amp;P)</string>
+   </property>
+  </action>
+  <action name="actionabout">
+   <property name="text">
+    <string>关于(&amp;A)</string>
+   </property>
+  </action>
+  <action name="actionexit">
+   <property name="text">
+    <string>退出程序(&amp;E)</string>
+   </property>
+  </action>
+  <action name="actionadduser">
+   <property name="text">
+    <string>添加用户(&amp;A)</string>
+   </property>
+  </action>
+  <action name="actioninit">
+   <property name="text">
+    <string>初始化停车场（&amp;I）</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>actionexit</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>loginWindow</class>
+ <widget class="QMainWindow" name="loginWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>472</width>
+    <height>293</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>登录泊车管理系统</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="pbtlogin">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>190</y>
+      <width>145</width>
+      <height>42</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>登录(&amp;E)</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pbtexit">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>190</y>
+      <width>145</width>
+      <height>42</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>退出(&amp;Q)</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEditPWD">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>110</y>
+      <width>271</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="echoMode">
+     <enum>QLineEdit::Password</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>110</y>
+      <width>111</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>密码(&amp;P)：</string>
+    </property>
+    <property name="buddy">
+     <cstring>lineEditPWD</cstring>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEditUID">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>50</y>
+      <width>271</width>
+      <height>41</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>50</y>
+      <width>141</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>账号(&amp;U)：</string>
+    </property>
+    <property name="buddy">
+     <cstring>lineEditUID</cstring>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <tabstops>
+  <tabstop>lineEditUID</tabstop>
+  <tabstop>lineEditPWD</tabstop>
+  <tabstop>pbtlogin</tabstop>
+  <tabstop>pbtexit</tabstop>
+ </tabstops>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>pbtexit</sender>
+   <signal>clicked()</signal>
+   <receiver>loginWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>332</x>
+     <y>210</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>238</x>
+     <y>164</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

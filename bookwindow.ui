@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>bookWindow</class>
+ <widget class="QMainWindow" name="bookWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>500</width>
+    <height>378</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>预约泊车</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>20</y>
+      <width>451</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>注意：提前30至60分钟预约</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>80</y>
+      <width>441</width>
+      <height>33</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>若有两次爽约记录，不可预约泊车</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="horizontalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>250</y>
+      <width>346</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QPushButton" name="pushButton">
+       <property name="text">
+        <string>预约</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pbtexit">
+       <property name="text">
+        <string>取消</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>71</x>
+      <y>192</y>
+      <width>108</width>
+      <height>33</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>车牌号：</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit">
+    <property name="geometry">
+     <rect>
+      <x>186</x>
+      <y>192</y>
+      <width>227</width>
+      <height>41</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>71</x>
+      <y>141</y>
+      <width>81</width>
+      <height>33</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>时间：</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>142</y>
+      <width>27</width>
+      <height>33</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>时</string>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="spbhour">
+    <property name="geometry">
+     <rect>
+      <x>187</x>
+      <y>142</y>
+      <width>66</width>
+      <height>42</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>367</x>
+      <y>142</y>
+      <width>27</width>
+      <height>33</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>分</string>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="spbmin">
+    <property name="geometry">
+     <rect>
+      <x>294</x>
+      <y>142</y>
+      <width>66</width>
+      <height>42</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>pbtexit</sender>
+   <signal>clicked()</signal>
+   <receiver>bookWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>342</x>
+     <y>289</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>249</x>
+     <y>188</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
