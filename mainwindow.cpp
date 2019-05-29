@@ -6,6 +6,7 @@
 #include "bookwindow.h"
 #include "ui_mainwindow.h"
 #include "leavewindow.h"
+#include "takewindow.h"
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -52,13 +53,13 @@ void MainWindow::on_pbtpark_clicked()
 
 void MainWindow::on_pbtleave_clicked()
 {
-    leaveWindow *leavewin = new leaveWindow;
-    leavewin->show();
+    takeWindow *takewin = new takeWindow(this);
+    takewin->show();
 }
 
 void MainWindow::on_pbtsearch_clicked()
 {
-    searchWindow *searchwin = new searchWindow;
+    searchWindow *searchwin = new searchWindow(this);
     searchwin->show();
 }
 

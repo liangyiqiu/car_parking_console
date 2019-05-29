@@ -1,4 +1,4 @@
-#ifndef SEARCHWINDOW_H
+﻿#ifndef SEARCHWINDOW_H
 #define SEARCHWINDOW_H
 
 #include <QMainWindow>
@@ -14,6 +14,9 @@ class searchWindow : public QMainWindow
 public:
     explicit searchWindow(QWidget *parent = nullptr);
     ~searchWindow();
+
+private slots:
+    void on_pbtsearch_clicked();
 
 private:
     Ui::searchWindow *ui;

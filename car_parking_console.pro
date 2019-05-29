@@ -33,7 +33,8 @@ SOURCES += \
         parkwindow.cpp \
         pkinfowindow.cpp \
         searchwindow.cpp \
-        setwindow.cpp
+        setwindow.cpp \
+        takewindow.cpp
 
 HEADERS += \
         bookwindow.h \
@@ -43,7 +44,8 @@ HEADERS += \
         parkwindow.h \
         pkinfowindow.h \
         searchwindow.h \
-        setwindow.h
+        setwindow.h \
+        takewindow.h
 
 FORMS += \
         bookwindow.ui \
@@ -53,7 +55,8 @@ FORMS += \
         parkwindow.ui \
         pkinfowindow.ui \
         searchwindow.ui \
-        setwindow.ui
+        setwindow.ui \
+        takewindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

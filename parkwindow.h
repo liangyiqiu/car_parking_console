@@ -35,7 +35,7 @@ public:
     int bigsmall=0;
     QString code;
     QString name;
-    int phone=0;
+    QString phone;
 };
 
 class  spot{
@@ -48,7 +48,7 @@ public:
     int bigsmall=0;
     char code[20]={0};
     char name[20]={0};
-    int phone=0;
+    char phone[20]={0};
 };
 extern spot spot[100];
 

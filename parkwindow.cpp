@@ -35,10 +35,10 @@ void parkWindow::on_pbtaccept_clicked()
     carspot[i].timehour=0;//currenttime.hour();
     carspot[i].timemin=0;//currenttime.minute();
     carspot[i].status=0;
-    carspot[0].code={0}ui->editcode->text();
-    carspot[0].name={0}ui->editname->text();
-    //readstr=ui->editphone->text();
-    carspot[i].phone=0;//readstr.toInt();
+//    carspot[0].code://ui->editcode->text();
+//    carspot[0].name;//ui->editname->text();
+//    //readstr=ui->editphone->text();
+//    carspot[i].phone;//readstr.toInt();
     carspot[i].bigsmall=0;//ui->cbbigsmall->currentIndex();
     carspot[i].number=i;
     }
@@ -64,7 +64,7 @@ void parkWindow::on_pbtaccept_clicked()
     {
         if(carspot0[i].status==0)
         {
-           carspot0[i].status=1;
+            carspot0[i].status=1;
             QString readstr=ui->editcode->text();
             QByteArray readarray=readstr.toLatin1();
             char* array=readarray.data();
@@ -78,8 +78,11 @@ void parkWindow::on_pbtaccept_clicked()
             name=ui->editname->text();
 
             readstr=ui->editphone->text();
-            carspot0[i].phone=readstr.toInt();
-            phone=readstr.toInt();
+            readarray=readstr.toLatin1();
+            array=readarray.data();
+            memcpy(carspot0[i].phone,array,20);
+            phone=ui->editphone->text();
+
             carspot0[i].bigsmall=ui->cbbigsmall->currentIndex();
             bigsmall=ui->cbbigsmall->currentIndex();
             QTime currenttime= QTime::currentTime();
