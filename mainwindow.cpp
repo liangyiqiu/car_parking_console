@@ -54,6 +54,7 @@ void MainWindow::on_pbtpark_clicked()
 void MainWindow::on_pbtleave_clicked()
 {
     takeWindow *takewin = new takeWindow(this);
+    connect(takewin,SIGNAL(sendData()),this,SLOT(receiveData()));
     takewin->show();
 }
 

@@ -17,6 +17,10 @@ public:
 
 private slots:
     void on_pbtsearch_clicked();
+    void receiveData();
+
+signals:
+    void sendData();
 
 private:
     Ui::takeWindow *ui;
@@ -31,6 +35,8 @@ public:
     int timelasthour;
     int timelastmin;
     int fee;
+    float feebig;
+    float feesmall;
 };
 
 #endif // TAKEWINDOW_H

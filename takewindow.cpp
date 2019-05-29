@@ -37,6 +37,17 @@ void takeWindow::on_pbtsearch_clicked()
         inFile.close();
     }
 
+    class parklot parklot0;
+    ifstream inFile1("parklot.dat", ios::binary | ios::in);  //以二进制读模式打开文件
+    if (!inFile1) {
+        cout << "Source file open error." << endl;
+    }
+    else
+    {
+        while(inFile1.read((char *)&parklot0, sizeof(parklot0))); //一直读到文件结束
+        inFile1.close();
+    }
+
     switch (ui->cbway->currentIndex())
     {
     case 0:
@@ -55,9 +66,13 @@ void takeWindow::on_pbtsearch_clicked()
             lasttime=(outtimehour-intimehour)*60+outtimemin-intimemin;
             timelasthour=lasttime/60;
             timelastmin=lasttime%60;
-            fee=0.6*lasttime;
+            feebig=parklot0.feebig;
+            feesmall=parklot0.feesmall;
+            fee=(int)feesmall*lasttime/60;
 
             leaveWindow *leavewin=new leaveWindow(this);
+            connect(leavewin,SIGNAL(sendData()),this,SLOT(receiveData()));
+            leavewin->setWindowModality(Qt::ApplicationModal);//阻塞除当前窗体之外的所有的窗体
             leavewin->show();
         }
         else
@@ -91,6 +106,8 @@ void takeWindow::on_pbtsearch_clicked()
                     fee=0.6*lasttime;
 
                     leaveWindow *leavewin=new leaveWindow(this);
+                    connect(leavewin,SIGNAL(sendData()),this,SLOT(receiveData()));
+                    leavewin->setWindowModality(Qt::ApplicationModal);//阻塞除当前窗体之外的所有的窗体
                     leavewin->show();
                     break;
                 }
@@ -104,4 +121,9 @@ void takeWindow::on_pbtsearch_clicked()
         break;
     }
     }
+}
+
+void takeWindow::receiveData()
+{
+    emit sendData();
 }
