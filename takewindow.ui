@@ -17,9 +17,9 @@
    <widget class="QWidget" name="horizontalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>50</x>
+      <x>40</x>
       <y>40</y>
-      <width>391</width>
+      <width>431</width>
       <height>80</height>
      </rect>
     </property>
@@ -88,6 +88,12 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <tabstops>
+  <tabstop>cbway</tabstop>
+  <tabstop>editinput</tabstop>
+  <tabstop>pbtsearch</tabstop>
+  <tabstop>pbtexit</tabstop>
+ </tabstops>
  <resources/>
  <connections>
   <connection>

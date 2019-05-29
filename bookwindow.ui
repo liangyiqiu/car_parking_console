@@ -167,6 +167,13 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <tabstops>
+  <tabstop>spbhour</tabstop>
+  <tabstop>spbmin</tabstop>
+  <tabstop>lineEdit</tabstop>
+  <tabstop>pushButton</tabstop>
+  <tabstop>pbtexit</tabstop>
+ </tabstops>
  <resources/>
  <connections>
   <connection>

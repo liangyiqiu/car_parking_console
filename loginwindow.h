@@ -1,4 +1,4 @@
-#ifndef LOGINWINDOW_H
+﻿#ifndef LOGINWINDOW_H
 #define LOGINWINDOW_H
 
 #include <QMainWindow>
@@ -19,6 +19,13 @@ private:
     Ui::loginWindow *ui;
 private slots:
     void on_pbtlogin_clicked(void);
+};
+
+class usergroup{
+public:
+    int status=0;
+    char username[20];
+    char passwd[50];
 };
 
 #endif // LOGINWINDOW_H

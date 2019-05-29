@@ -30,11 +30,14 @@ public:
     int number;
     int intimehour;
     int intimemin;
+    int intimedate;
     int outtimehour;
     int outtimemin;
+    int outtimedate;
     int timelasthour;
     int timelastmin;
     int fee;
+    int bigsmall;
     float feebig;
     float feesmall;
 };

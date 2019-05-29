@@ -24,6 +24,10 @@ leaveWindow::leaveWindow(QWidget *parent) :
     ui->lbouttimemin->setNum(ptr->outtimemin);
     ui->lbtimelasthour->setNum(ptr->timelasthour);
     ui->lbtimelastmin->setNum(ptr->timelastmin);
+    switch (ptr->bigsmall) {
+    case 0:ui->lbbigsmall->setText(QString::fromLocal8Bit("大型"));break;
+    default:ui->lbbigsmall->setText(QString::fromLocal8Bit("小型"));
+    }
 }
 
 leaveWindow::~leaveWindow()

@@ -21,6 +21,8 @@ private slots:
     void on_pbtlogout_clicked();
     void on_pbtset_clicked();
     void receiveData();
+    void fun_register();
+    void fun_about();
 
     void on_pbtpark_clicked();
 

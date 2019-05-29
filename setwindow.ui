@@ -299,6 +299,16 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <tabstops>
+  <tabstop>cblevel</tabstop>
+  <tabstop>editfeebig</tabstop>
+  <tabstop>editfeesmall</tabstop>
+  <tabstop>editempty</tabstop>
+  <tabstop>edittotal</tabstop>
+  <tabstop>editbook</tabstop>
+  <tabstop>pushButton</tabstop>
+  <tabstop>pbtexit</tabstop>
+ </tabstops>
  <resources/>
  <connections>
   <connection>

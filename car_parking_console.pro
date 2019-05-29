@@ -32,9 +32,12 @@ SOURCES += \
         mainwindow.cpp \
         parkwindow.cpp \
         pkinfowindow.cpp \
+        registorwindow.cpp \
         searchwindow.cpp \
         setwindow.cpp \
         takewindow.cpp
+
+RC_ICONS =car.ico
 
 HEADERS += \
         bookwindow.h \
@@ -43,6 +46,7 @@ HEADERS += \
         mainwindow.h \
         parkwindow.h \
         pkinfowindow.h \
+        registorwindow.h \
         searchwindow.h \
         setwindow.h \
         takewindow.h
@@ -54,6 +58,7 @@ FORMS += \
         mainwindow.ui \
         parkwindow.ui \
         pkinfowindow.ui \
+        registorwindow.ui \
         searchwindow.ui \
         setwindow.ui \
         takewindow.ui

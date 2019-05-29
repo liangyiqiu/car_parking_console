@@ -50,6 +50,10 @@ void searchWindow::on_pbtsearch_clicked()
             ui->lbphone->setText(QString::fromLocal8Bit(carspot0[number].phone));
             ui->lbtimehour->setNum(carspot0[number].timehour);
             ui->lbtimemin->setNum(carspot0[number].timemin);
+            switch (carspot0[number].bigsmall) {
+            case 0:ui->lbbigsmall->setText(QString::fromLocal8Bit("大型"));break;
+            default:ui->lbbigsmall->setText(QString::fromLocal8Bit("小型"));
+            }
         }
         else
         {
@@ -74,6 +78,10 @@ void searchWindow::on_pbtsearch_clicked()
                     ui->lbphone->setText(QString::fromLocal8Bit(carspot0[i].phone));
                     ui->lbtimehour->setNum(carspot0[i].timehour);
                     ui->lbtimemin->setNum(carspot0[i].timemin);
+                    switch (carspot0[i].bigsmall) {
+                    case 0:ui->lbbigsmall->setText(QString::fromLocal8Bit("大型"));break;
+                    default:ui->lbbigsmall->setText(QString::fromLocal8Bit("小型"));
+                    }
                     break;
                 }
             }
@@ -87,68 +95,4 @@ void searchWindow::on_pbtsearch_clicked()
     }
     }
 
-
-//    for(int i=0;i<ptr->total;i++)
-//    {
-//        if(carspot0[i].status==1)
-//        {
-
-//            carspot0[i].status=1;
-//            QString readstr=ui->editcode->text();
-//            QByteArray readarray=readstr.toLatin1();
-//            char* array=readarray.data();
-//            memcpy(carspot0[i].code,array,20);
-//            code=ui->editcode->text();
-
-//            readstr=ui->editname->text();
-//            readarray=readstr.toLatin1();
-//            array=readarray.data();
-//            memcpy(carspot0[i].name,array,20);
-//            name=ui->editname->text();
-
-//            readstr=ui->editphone->text();
-//            carspot0[i].phone=readstr.toInt();
-//            phone=readstr.toInt();
-//            carspot0[i].bigsmall=ui->cbbigsmall->currentIndex();
-//            bigsmall=ui->cbbigsmall->currentIndex();
-//            QTime currenttime= QTime::currentTime();
-//            carspot0[i].timemin=currenttime.minute();
-//            timemin=currenttime.minute();
-//            carspot0[i].timehour=currenttime.hour();
-//            timehour=currenttime.hour();
-//            number=i;
-
-//            fstream outFile("spots.dat", ios::out | ios::binary);
-//            outFile.write((char*)carspot0, sizeof(carspot0));
-//            outFile.close();
-
-//            class parklot parklot0;
-//            fstream inFile("parklot.dat", ios::binary | ios::in);  //以二进制读模式打开文件
-//            if (!inFile) {
-//                cout << "Source file open error." << endl;
-//            }
-//            else
-//            {
-//                while(inFile.read((char *)&parklot0, sizeof(parklot0))); //一直读到文件结束
-//                inFile.close();
-//            }
-//            parklot0.empty-=1;
-
-
-//            fstream outFile1("parklot.dat", ios::out | ios::binary);
-//            outFile1.write((char*)&parklot0, sizeof(parklot0));
-//            outFile1.close();
-
-//            pkinfoWindow *pkinwin=new pkinfoWindow(this);
-//            pkinwin->setWindowModality(Qt::ApplicationModal);//阻塞除当前窗体之外的所有的窗体
-//            pkinwin->show();
-
-//            ui->editcode->clear();
-//            ui->editname->clear();
-//            ui->editphone->clear();
-
-//            break;
-//        }
-//    }
-//    emit sendData();
 }

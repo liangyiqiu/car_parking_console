@@ -43,6 +43,7 @@ public:
     int number=0;
     int left=0;
     int status=0;
+    int timedate=0;
     int timehour=0;
     int timemin=0;
     int bigsmall=0;

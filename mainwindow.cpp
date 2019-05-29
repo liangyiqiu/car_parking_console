@@ -7,9 +7,11 @@
 #include "ui_mainwindow.h"
 #include "leavewindow.h"
 #include "takewindow.h"
+#include "registorwindow.h"
 #include <iostream>
 #include <fstream>
 #include <string>
+#include "qmessagebox.h"
 
 using namespace std;
 
@@ -19,6 +21,8 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     connect(ui->actionlogout,SIGNAL(triggered()),this,SLOT(on_pbtlogout_clicked()));
+    connect(ui->actionregister,SIGNAL(triggered()),this,SLOT(fun_register()));
+    connect(ui->actionabout,SIGNAL(triggered()),this,SLOT(fun_about()));
     refresh();
 }
 
@@ -31,6 +35,7 @@ void MainWindow::on_pbtlogout_clicked()
 {
     loginWindow *win = new loginWindow;
     win->show();
+    this->setAttribute(Qt::WA_DeleteOnClose);//关闭时释放内存
     this->close();
 }
 
@@ -40,6 +45,7 @@ void MainWindow::on_pbtset_clicked()
 {
     setWindow *setWin=new setWindow(this);
     connect(setWin,SIGNAL(sendData()),this,SLOT(receiveData()));
+    setWin->setAttribute(Qt::WA_DeleteOnClose);//关闭时释放内存
     setWin->show();
 }
 
@@ -48,6 +54,7 @@ void MainWindow::on_pbtpark_clicked()
 {
     parkWindow *parkwin=new parkWindow(this);
     connect(parkwin,SIGNAL(sendData()),this,SLOT(receiveData()));
+    parkwin->setAttribute(Qt::WA_DeleteOnClose);//关闭时释放内存
     parkwin->show();
 }
 
@@ -55,18 +62,21 @@ void MainWindow::on_pbtleave_clicked()
 {
     takeWindow *takewin = new takeWindow(this);
     connect(takewin,SIGNAL(sendData()),this,SLOT(receiveData()));
+    takewin->setAttribute(Qt::WA_DeleteOnClose);//关闭时释放内存
     takewin->show();
 }
 
 void MainWindow::on_pbtsearch_clicked()
 {
     searchWindow *searchwin = new searchWindow(this);
+    searchwin->setAttribute(Qt::WA_DeleteOnClose);//关闭时释放内存
     searchwin->show();
 }
 
 void MainWindow::on_pbtbook_clicked()
 {
-    bookWindow *bookwin=new bookWindow;
+    bookWindow *bookwin=new bookWindow(this);
+    bookwin->setAttribute(Qt::WA_DeleteOnClose);//关闭时释放内存
     bookwin->show();
 }
 
@@ -90,8 +100,8 @@ void MainWindow::refresh()
     default:ui->lblevel->setText(QString::fromLocal8Bit("三级"));
     }
 
-    ui->lbfeebig->setNum(parklot0.feebig);
-    ui->lbfeesmall->setNum(parklot0.feesmall);
+    ui->lbfeebig->setNum((double)parklot0.feebig);
+    ui->lbfeesmall->setNum((double)parklot0.feesmall);
     ui->lbtotal->setNum(parklot0.total);
     ui->lcdempty->display(parklot0.empty);
     ui->lcdbook->display(parklot0.book);
@@ -105,8 +115,22 @@ void MainWindow::refresh()
     book=parklot0.book;
 }
 
-void MainWindow::receiveData()
+void MainWindow::receiveData()//收到信号，更新主界面
 {
     refresh();
-    std::cout<<"received"<<std::endl;
+    std::cout<<"mainwindow refreshed"<<std::endl;
 }
+
+void MainWindow::fun_register()
+{
+    registorWindow *rgtwin=new registorWindow(this);
+    rgtwin->setWindowModality(Qt::ApplicationModal);//阻塞除当前窗体之外的所有的窗体
+    rgtwin->setAttribute(Qt::WA_DeleteOnClose);//关闭时释放内存
+    rgtwin->show();
+}
+
+void MainWindow::fun_about()
+{
+    QMessageBox::about(this,QString::fromLocal8Bit("关于"),QString::fromLocal8Bit("开发者：梁逸秋 贾睿\n我们的github链接:\nhttps://github.com/liangyiqiu/car_parking_console"));
+}
+

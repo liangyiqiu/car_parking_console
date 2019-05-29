@@ -5,6 +5,7 @@
 #include <fstream>
 #include <iostream>
 #include "ui_parkwindow.h"
+#include <ctime>
 
 using namespace std;
 
@@ -53,6 +54,15 @@ void parkWindow::on_pbtaccept_clicked()
     fstream inFile("spots.dat", ios::binary | ios::in);  //以二进制读模式打开文件
     if (!inFile) {
         cout << "Source file open error." << endl;
+        for(int i=0;i<2000;i++)
+        {
+            carspot0[i].timehour=0;//currenttime.hour();
+            carspot0[i].timemin=0;//currenttime.minute();
+            carspot0[i].timedate=0;
+            carspot0[i].status=0;
+            carspot0[i].bigsmall=0;//ui->cbbigsmall->currentIndex();
+            carspot0[i].number=i;
+        }
     }
     else
     {
@@ -64,6 +74,10 @@ void parkWindow::on_pbtaccept_clicked()
     {
         if(carspot0[i].status==0)
         {
+            time_t now = time(nullptr);// 基于当前系统的当前日期/时间
+            tm* ltm = localtime(&now);
+            carspot0->timedate=ltm->tm_yday;//停入的日子是今年的第几天
+
             carspot0[i].status=1;
             QString readstr=ui->editcode->text();
             QByteArray readarray=readstr.toLatin1();

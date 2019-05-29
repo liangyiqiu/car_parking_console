@@ -7,6 +7,7 @@
 #include <string>
 #include "qmessagebox.h"
 #include "QTime"
+#include <ctime>
 
 using namespace std;
 
@@ -56,19 +57,42 @@ void takeWindow::on_pbtsearch_clicked()
         number=inputstr.toInt();
         if(carspot0[number].status==1)
         {
+
+            time_t now = time(0);// 基于当前系统的当前日期/时间
+            tm* ltm = localtime(&now);
             code=QString::fromLocal8Bit(carspot0[number].code);
             intimehour=carspot0[number].timehour;
             intimemin=carspot0[number].timemin;
+            intimedate=carspot0[number].timedate;
             QTime currenttime= QTime::currentTime();
             outtimehour=currenttime.hour();
             outtimemin=currenttime.minute();
+            outtimedate = ltm->tm_yday;//取出的日子是今年的第几天
             int lasttime;
             lasttime=(outtimehour-intimehour)*60+outtimemin-intimemin;
             timelasthour=lasttime/60;
             timelastmin=lasttime%60;
+            bigsmall=carspot0[number].bigsmall;
             feebig=parklot0.feebig;
             feesmall=parklot0.feesmall;
-            fee=(int)feesmall*lasttime/60;
+
+            if(bigsmall==0){
+                if(timelastmin<=30){
+                    fee=feebig*((outtimedate-intimedate)*24+timelasthour)+0.5*feebig;
+                }
+                else {
+                    fee=feebig*((outtimedate-intimedate)*24+timelasthour+1.0);
+                }
+            }
+            else {
+                if(timelastmin<=30){
+                    fee=feesmall*((outtimedate-intimedate)*24+timelasthour)+0.5*feebig;
+                }
+                else {
+                    fee=feesmall*((outtimedate-intimedate)*24+timelasthour+1.0);
+                }
+            }
+
 
             leaveWindow *leavewin=new leaveWindow(this);
             connect(leavewin,SIGNAL(sendData()),this,SLOT(receiveData()));
@@ -93,17 +117,40 @@ void takeWindow::on_pbtsearch_clicked()
                 if(showstr==ui->editinput->text())
                 {
                     number=i;
+                    time_t now = time(0);// 基于当前系统的当前日期/时间
+                    tm* ltm = localtime(&now);
                     code=QString::fromLocal8Bit(carspot0[i].code);
                     intimehour=carspot0[i].timehour;
                     intimemin=carspot0[i].timemin;
+                    intimedate=carspot0[number].timedate;
                     QTime currenttime= QTime::currentTime();
                     outtimehour=currenttime.hour();
                     outtimemin=currenttime.minute();
+                    outtimedate = ltm->tm_yday;//取出的日子是今年的第几天
                     int lasttime;
                     lasttime=(outtimehour-intimehour)*60+outtimemin-intimemin;
                     timelasthour=lasttime/60;
                     timelastmin=lasttime%60;
-                    fee=0.6*lasttime;
+                    bigsmall=carspot0[i].bigsmall;
+                    feebig=parklot0.feebig;
+                    feesmall=parklot0.feesmall;
+
+                    if(bigsmall==0){
+                        if(timelastmin<=30){
+                            fee=feebig*((outtimedate-intimedate)*24+timelasthour)+0.5*feebig;
+                        }
+                        else {
+                            fee=feebig*((outtimedate-intimedate)*24+timelasthour+1.0);
+                        }
+                    }
+                    else {
+                        if(timelastmin<=30){
+                            fee=feesmall*((outtimedate-intimedate)*24+timelasthour)+0.5*feebig;
+                        }
+                        else {
+                            fee=feesmall*((outtimedate-intimedate)*24+timelasthour+1.0);
+                        }
+                    }
 
                     leaveWindow *leavewin=new leaveWindow(this);
                     connect(leavewin,SIGNAL(sendData()),this,SLOT(receiveData()));
