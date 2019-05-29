@@ -34,7 +34,7 @@ private:
     Ui::setWindow *ui;
 
 signals:
-    void sendData(Sdata);
+    void sendData();
 };
 
 #endif // SETWINDOW_H

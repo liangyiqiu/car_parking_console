@@ -31,6 +31,7 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
         parkwindow.cpp \
+        pkinfowindow.cpp \
         searchwindow.cpp \
         setwindow.cpp
 
@@ -40,6 +41,7 @@ HEADERS += \
         loginwindow.h \
         mainwindow.h \
         parkwindow.h \
+        pkinfowindow.h \
         searchwindow.h \
         setwindow.h
 
@@ -49,6 +51,7 @@ FORMS += \
         loginwindow.ui \
         mainwindow.ui \
         parkwindow.ui \
+        pkinfowindow.ui \
         searchwindow.ui \
         setwindow.ui
 

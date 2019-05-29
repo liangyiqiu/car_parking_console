@@ -140,7 +140,7 @@
    <sender>pbtexit</sender>
    <signal>clicked()</signal>
    <receiver>parkWindow</receiver>
-   <slot>close()</slot>
+   <slot>hide()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>366</x>

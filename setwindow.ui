@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>432</width>
-    <height>473</height>
+    <width>441</width>
+    <height>530</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -70,34 +70,11 @@
      <string>大/小车</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="edittotal">
-    <property name="geometry">
-     <rect>
-      <x>140</x>
-      <y>290</y>
-      <width>111</width>
-      <height>41</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_8">
-    <property name="geometry">
-     <rect>
-      <x>270</x>
-      <y>290</y>
-      <width>114</width>
-      <height>33</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>辆</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
       <x>90</x>
-      <y>360</y>
+      <y>450</y>
       <width>111</width>
       <height>42</height>
      </rect>
@@ -110,7 +87,7 @@
     <property name="geometry">
      <rect>
       <x>230</x>
-      <y>360</y>
+      <y>450</y>
       <width>111</width>
       <height>42</height>
      </rect>
@@ -145,18 +122,68 @@
      <string>0</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_6">
+   <widget class="QWidget" name="gridLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>290</y>
-      <width>108</width>
-      <height>33</height>
+      <x>70</x>
+      <y>280</y>
+      <width>321</width>
+      <height>141</height>
      </rect>
     </property>
-    <property name="text">
-     <string>总车位：</string>
-    </property>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="2" column="1">
+      <widget class="QLineEdit" name="editbook"/>
+     </item>
+     <item row="0" column="0">
+      <widget class="QLabel" name="label_6">
+       <property name="text">
+        <string>总车位：</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="editempty"/>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="label_10">
+       <property name="text">
+        <string>预定车位：</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="edittotal"/>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="label_3">
+       <property name="text">
+        <string>空车位：</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <widget class="QLabel" name="label_8">
+       <property name="text">
+        <string>辆</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="2">
+      <widget class="QLabel" name="label_15">
+       <property name="text">
+        <string>辆</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="2">
+      <widget class="QLabel" name="label_14">
+       <property name="text">
+        <string>辆</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
@@ -278,7 +305,7 @@
    <sender>pbtexit</sender>
    <signal>clicked()</signal>
    <receiver>setWindow</receiver>
-   <slot>hide()</slot>
+   <slot>close()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>265</x>

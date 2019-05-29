@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>pkinfoWindow</class>
+ <widget class="QMainWindow" name="pkinfoWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>414</width>
+    <height>374</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>泊车信息</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="label_9">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>160</y>
+      <width>21</width>
+      <height>33</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>：</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbtimemin">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>162</y>
+      <width>114</width>
+      <height>33</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>00</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_11">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>210</y>
+      <width>114</width>
+      <height>33</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>车型：</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblevel">
+    <property name="geometry">
+     <rect>
+      <x>231</x>
+      <y>210</y>
+      <width>114</width>
+      <height>33</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pbtaccept">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>280</y>
+      <width>145</width>
+      <height>42</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>确认</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>77</y>
+      <width>108</width>
+      <height>33</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>车牌号：</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>35</y>
+      <width>108</width>
+      <height>33</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>车位号：</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_7">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>162</y>
+      <width>135</width>
+      <height>33</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>停入时间：</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>120</y>
+      <width>135</width>
+      <height>33</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>车主姓名：</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbnumber">
+    <property name="geometry">
+     <rect>
+      <x>231</x>
+      <y>41</y>
+      <width>114</width>
+      <height>33</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>00</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbcode">
+    <property name="geometry">
+     <rect>
+      <x>231</x>
+      <y>81</y>
+      <width>151</width>
+      <height>33</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>00</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbname">
+    <property name="geometry">
+     <rect>
+      <x>231</x>
+      <y>121</y>
+      <width>151</width>
+      <height>33</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>00</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbtimehour">
+    <property name="geometry">
+     <rect>
+      <x>231</x>
+      <y>162</y>
+      <width>41</width>
+      <height>33</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>00</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

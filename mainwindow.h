@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "setwindow.h"
+#include "parkwindow.h"
 
 namespace Ui {
 class MainWindow;
@@ -15,12 +16,11 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-    setWindow *setWin;
 
 private slots:
     void on_pbtlogout_clicked();
     void on_pbtset_clicked();
-    void receiveData(Sdata);
+    void receiveData();
 
     void on_pbtpark_clicked();
 
@@ -34,14 +34,24 @@ private:
     Ui::MainWindow *ui;
 
 public:
+    int level=0;
+    float feebig=0;
+    float feesmall=0;
+    int total=0;
+    int book=0;
+    int empty=0;
+public:
+    void refresh(void);
+};
+
+class parklot{
+public:
     int level;
     float feebig;
     float feesmall;
-    int total;
-    int book;
-    int empty;
-public:
-    void refresh(void);
+    int total=0;
+    int book=0;
+    int empty=0;
 };
 
 #endif // MAINWINDOW_H

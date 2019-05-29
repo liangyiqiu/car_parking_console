@@ -17,7 +17,7 @@ loginWindow::~loginWindow()
 
 void loginWindow::on_pbtlogin_clicked()
 {
-    if (ui->lineEditUID->text() == "username" && ui->lineEditPWD->text() == "123456")
+    if (ui->lineEditUID->text() == "root" && ui->lineEditPWD->text() == "123456")
     {
         MainWindow *win = new MainWindow;
         win->show();
