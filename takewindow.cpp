@@ -69,7 +69,7 @@ void takeWindow::on_pbtsearch_clicked()
             outtimemin=currenttime.minute();
             outtimedate = ltm->tm_yday;//取出的日子是今年的第几天
             int lasttime;
-            lasttime=(outtimehour-intimehour)*60+outtimemin-intimemin;
+            lasttime=(outtimedate-intimedate)*24*60+(outtimehour-intimehour)*60+outtimemin-intimemin;
             timelasthour=lasttime/60;
             timelastmin=lasttime%60;
             bigsmall=carspot0[number].bigsmall;
@@ -78,18 +78,18 @@ void takeWindow::on_pbtsearch_clicked()
 
             if(bigsmall==0){
                 if(timelastmin<=30){
-                    fee=feebig*((outtimedate-intimedate)*24+timelasthour)+0.5*feebig;
+                    fee=feebig*timelasthour+0.5*feebig;
                 }
                 else {
-                    fee=feebig*((outtimedate-intimedate)*24+timelasthour+1.0);
+                    fee=feebig*(timelasthour+1.0);
                 }
             }
             else {
                 if(timelastmin<=30){
-                    fee=feesmall*((outtimedate-intimedate)*24+timelasthour)+0.5*feebig;
+                    fee=feesmall*timelasthour+0.5*feebig;
                 }
                 else {
-                    fee=feesmall*((outtimedate-intimedate)*24+timelasthour+1.0);
+                    fee=feesmall*(timelasthour+1.0);
                 }
             }
 
@@ -128,7 +128,7 @@ void takeWindow::on_pbtsearch_clicked()
                     outtimemin=currenttime.minute();
                     outtimedate = ltm->tm_yday;//取出的日子是今年的第几天
                     int lasttime;
-                    lasttime=(outtimehour-intimehour)*60+outtimemin-intimemin;
+                    lasttime=(outtimedate-intimedate)*24*60+(outtimehour-intimehour)*60+outtimemin-intimemin;
                     timelasthour=lasttime/60;
                     timelastmin=lasttime%60;
                     bigsmall=carspot0[i].bigsmall;
@@ -137,18 +137,18 @@ void takeWindow::on_pbtsearch_clicked()
 
                     if(bigsmall==0){
                         if(timelastmin<=30){
-                            fee=feebig*((outtimedate-intimedate)*24+timelasthour)+0.5*feebig;
+                            fee=feebig*(timelasthour)+0.5*feebig;
                         }
                         else {
-                            fee=feebig*((outtimedate-intimedate)*24+timelasthour+1.0);
+                            fee=feebig*(timelasthour+1.0);
                         }
                     }
                     else {
                         if(timelastmin<=30){
-                            fee=feesmall*((outtimedate-intimedate)*24+timelasthour)+0.5*feebig;
+                            fee=feesmall*(timelasthour)+0.5*feebig;
                         }
                         else {
-                            fee=feesmall*((outtimedate-intimedate)*24+timelasthour+1.0);
+                            fee=feesmall*(timelasthour+1.0);
                         }
                     }
 

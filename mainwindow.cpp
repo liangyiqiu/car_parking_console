@@ -76,6 +76,7 @@ void MainWindow::on_pbtsearch_clicked()
 void MainWindow::on_pbtbook_clicked()
 {
     bookWindow *bookwin=new bookWindow(this);
+    connect(bookwin,SIGNAL(sendData()),this,SLOT(receiveData()));
     bookwin->setAttribute(Qt::WA_DeleteOnClose);//关闭时释放内存
     bookwin->show();
 }

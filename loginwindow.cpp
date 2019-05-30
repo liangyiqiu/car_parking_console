@@ -6,6 +6,8 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include "qpainter.h"
+#include "qpalette.h"
 
 using namespace std;
 
@@ -14,12 +16,23 @@ loginWindow::loginWindow(QWidget *parent) :
     ui(new Ui::loginWindow)
 {
     ui->setupUi(this);
+    this->setWindowFlags(Qt::FramelessWindowHint);//无边框
+    this->setAttribute(Qt::WA_TranslucentBackground);//背景透明
 }
 
 loginWindow::~loginWindow()
 {
     delete ui;
 }
+
+void loginWindow::paintEvent(QPaintEvent *e)
+ {
+         QPainter p(this );
+         //p.fillRect(rect(), QColor(0,0xff,0,30));
+         QPixmap pixmap = QPixmap(":/image/beijing3.png").scaled(this->size());
+         QPainter painter(this);
+         painter.drawPixmap(this->rect(), pixmap);
+ }
 
 void loginWindow::on_pbtlogin_clicked()
 {    
@@ -69,10 +82,11 @@ void loginWindow::on_pbtlogin_clicked()
         int i;//counter
         for(i=0;i<100;i++)
         {
-            if(strcmp(usergroup0[i].username,uid)==0&&strcmp(usergroup0->passwd,pwd)
+            if(strcmp(usergroup0[i].username,uid)==0&&strcmp(usergroup0[i].passwd,pwd)==0
                     &&strlen(uid)!=0
                     )
             {
+                cout<<"user number= "<<i<<endl;
                 MainWindow *win=new MainWindow;
                 win->setAttribute(Qt::WA_DeleteOnClose);//关闭时释放内存
                 win->show();
@@ -89,4 +103,9 @@ void loginWindow::on_pbtlogin_clicked()
 
         }
     }
+}
+
+void loginWindow::on_pbtmin_clicked()
+{
+    this->setWindowState(Qt::WindowMinimized);
 }

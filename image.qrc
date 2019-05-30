@@ -1,0 +1,23 @@
+<RCC>
+    <qresource prefix="/image">
+        <file>beijing.png</file>
+        <file>beijing2.png</file>
+        <file>beijing3.png</file>
+        <file>mainbeijing.png</file>
+        <file>mainbig.png</file>
+        <file>mainfit.png</file>
+        <file>car.ico</file>
+    </qresource>
+    <qresource prefix="/white">
+        <file>closeButton.png</file>
+    </qresource>
+    <qresource prefix="/icons">
+        <file>icons/cancel.png</file>
+        <file>icons/cancelhover.png</file>
+        <file>icons/minimize.png</file>
+        <file>icons/minimizehover.png</file>
+        <file>icons/chevron.png</file>
+        <file>icons/downarrow.png</file>
+        <file>icons/downarrowfit.png</file>
+    </qresource>
+</RCC>

@@ -51,7 +51,7 @@
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="pbtbook">
        <property name="text">
         <string>预约</string>
        </property>
@@ -171,26 +171,9 @@
   <tabstop>spbhour</tabstop>
   <tabstop>spbmin</tabstop>
   <tabstop>lineEdit</tabstop>
-  <tabstop>pushButton</tabstop>
+  <tabstop>pbtbook</tabstop>
   <tabstop>pbtexit</tabstop>
  </tabstops>
  <resources/>
- <connections>
-  <connection>
-   <sender>pbtexit</sender>
-   <signal>clicked()</signal>
-   <receiver>bookWindow</receiver>
-   <slot>close()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>342</x>
-     <y>289</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>249</x>
-     <y>188</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>
