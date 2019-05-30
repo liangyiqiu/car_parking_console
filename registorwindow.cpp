@@ -6,6 +6,8 @@
 #include <string>
 #include "qmessagebox.h"
 
+//该窗口用于注册用户
+
 using namespace std;
 
 registorWindow::registorWindow(QWidget *parent) :
@@ -22,13 +24,13 @@ registorWindow::~registorWindow()
 
 void registorWindow::on_pbtregistor_clicked()
 {
-    if(ui->editPWD->text()==ui->editPWDD->text())
+    if(ui->editPWD->text()==ui->editPWDD->text())//判断两次输入密码是否一致
     {
         class usergroup usergroup0[100];
         fstream inFile("user.dat", ios::binary | ios::in);  //以二进制读模式打开文件
         if (!inFile) {
             cout << "Source file open error." << endl;
-
+            //打开失败，创建空白用户信息文件
             for(int i=0;i<100;i++)
             {
                 usergroup0[i].status=0;
@@ -47,7 +49,7 @@ void registorWindow::on_pbtregistor_clicked()
 
         for(int i=0;i<100;i++)
         {
-            if(usergroup0[i].status==0)
+            if(usergroup0[i].status==0)//用户信息位为空
             {
                 usergroup0[i].status=1;
                 QString readstr;

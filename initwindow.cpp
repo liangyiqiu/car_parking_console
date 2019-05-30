@@ -72,4 +72,5 @@ void initWindow::on_pushButton_clicked()
     }
      MainWindow *ptr = (MainWindow*)parentWidget();
      ptr->refresh();
+     this->close();
 }

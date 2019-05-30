@@ -15,6 +15,7 @@ leaveWindow::leaveWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     takeWindow *ptr = (takeWindow*)parentWidget();
+    //显示车位信息
     ui->lcdfee->display(ptr->fee);
     ui->lbcode->setText(ptr->code);
     ui->lbnumer->setNum(ptr->number);
@@ -49,7 +50,7 @@ void leaveWindow::on_pbtleave_clicked()
     }
 
     takeWindow *ptr=(takeWindow*)parentWidget();
-    carspot0[ptr->number].status=0;
+    carspot0[ptr->number].status=0;//清空车位
 
     fstream outFile("spots.dat", ios::out | ios::binary);
     outFile.write((char*)carspot0, sizeof(carspot0));
@@ -66,7 +67,7 @@ void leaveWindow::on_pbtleave_clicked()
         while(inFile1.read((char *)&parklot0, sizeof(parklot0))); //一直读到文件结束
         inFile1.close();
     }
-    parklot0.empty+=1;
+    parklot0.empty+=1;//空车位加一
 
 
     fstream outFile1("parklot.dat", ios::out | ios::binary);

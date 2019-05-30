@@ -97,7 +97,7 @@ void bookWindow::on_pbtbook_clicked()
         fstream inFile2("blacklist.dat", ios::binary | ios::in);  //以二进制读模式打开文件
         if (!inFile2) {
             cout << "Source file open error." << endl;
-            for(int i;i<2000;i++)
+            for(int i=0;i<2000;i++)
             {
                 blacklist0[i].number=0;
             }
@@ -147,9 +147,10 @@ void bookWindow::on_pbtbook_clicked()
                 outFile1.write((char*)&parklot0, sizeof(parklot0));
                 outFile1.close();
                 ui->lineEdit->clear();
+
+                QMessageBox::warning(this,QString::fromLocal8Bit("提示"),QString::fromLocal8Bit("预约成功！"),QMessageBox::Cancel);
+                break;
             }
-            QMessageBox::warning(this,QString::fromLocal8Bit("提示"),QString::fromLocal8Bit("预约成功！"),QMessageBox::Cancel);
-            break;
         }
 
         emit sendData();

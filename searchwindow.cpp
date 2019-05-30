@@ -36,9 +36,9 @@ void searchWindow::on_pbtsearch_clicked()
         inFile.close();
     }
 
-    switch (ui->cbway->currentIndex())
+    switch (ui->cbway->currentIndex())//选择查询方式
     {
-    case 0:
+    case 0://车位号
     {
         QString inputstr=ui->editinput->text();
         int number=inputstr.toInt();
@@ -62,7 +62,7 @@ void searchWindow::on_pbtsearch_clicked()
         ui->editinput->clear();
         break;
     }
-    case 1:
+    case 1://车牌号
     {
         int i;//counter
         for(i=0;i<ptr->total;i++)

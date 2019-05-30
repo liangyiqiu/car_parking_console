@@ -28,9 +28,23 @@ void takeWindow::on_pbtsearch_clicked()
     MainWindow *ptr = (MainWindow*)parentWidget();
 
     class spot carspot0[2000];
-    fstream inFile("spots.dat", ios::binary | ios::in);  //以二进制读模式打开文件
+    fstream inFile("spots.dat", ios::binary | ios::in);  //以二进制读模式打开车位信息文件
     if (!inFile) {
         cout << "Source file open error." << endl;
+        for(int i=0;i<2000;i++)//如果失败，写入新数据文件
+        {
+            carspot0[i].timehour=0;
+            carspot0[i].timemin=0;
+            carspot0[i].timedate=0;
+            carspot0[i].status=0;
+            carspot0[i].bigsmall=0;
+            carspot0[i].number=i;
+
+        }
+        fstream outFile("spots.dat", ios::out | ios::binary);
+        outFile.write((char*)carspot0, sizeof(carspot0));
+        outFile.close();
+        cout<<"initsuccess"<<endl;
     }
     else
     {
@@ -39,7 +53,7 @@ void takeWindow::on_pbtsearch_clicked()
     }
 
     class parklot parklot0;
-    ifstream inFile1("parklot.dat", ios::binary | ios::in);  //以二进制读模式打开文件
+    ifstream inFile1("parklot.dat", ios::binary | ios::in);  //以二进制读模式打开停车场信息文件
     if (!inFile1) {
         cout << "Source file open error." << endl;
     }
@@ -49,9 +63,9 @@ void takeWindow::on_pbtsearch_clicked()
         inFile1.close();
     }
 
-    switch (ui->cbway->currentIndex())
+    switch (ui->cbway->currentIndex())//查询方式
     {
-    case 0:
+    case 0://车位号
     {
         QString inputstr=ui->editinput->text();
         number=inputstr.toInt();
@@ -68,14 +82,14 @@ void takeWindow::on_pbtsearch_clicked()
             outtimehour=currenttime.hour();
             outtimemin=currenttime.minute();
             outtimedate = ltm->tm_yday;//取出的日子是今年的第几天
-            int lasttime;
+            int lasttime;//计算停车时长（分钟）
             lasttime=(outtimedate-intimedate)*24*60+(outtimehour-intimehour)*60+outtimemin-intimemin;
             timelasthour=lasttime/60;
             timelastmin=lasttime%60;
             bigsmall=carspot0[number].bigsmall;
             feebig=parklot0.feebig;
             feesmall=parklot0.feesmall;
-
+            //计算费用
             if(bigsmall==0){
                 if(timelastmin<=30){
                     fee=feebig*timelasthour+0.5*feebig;
@@ -94,8 +108,8 @@ void takeWindow::on_pbtsearch_clicked()
             }
 
 
-            leaveWindow *leavewin=new leaveWindow(this);
-            connect(leavewin,SIGNAL(sendData()),this,SLOT(receiveData()));
+            leaveWindow *leavewin=new leaveWindow(this);//创建收费信息窗口
+            connect(leavewin,SIGNAL(sendData()),this,SLOT(receiveData()));//连接信号
             leavewin->setWindowModality(Qt::ApplicationModal);//阻塞除当前窗体之外的所有的窗体
             leavewin->show();
         }
@@ -106,12 +120,12 @@ void takeWindow::on_pbtsearch_clicked()
         ui->editinput->clear();
         break;
     }
-    case 1:
+    case 1://车牌号
     {
         int i;//counter
         for(i=0;i<ptr->total;i++)
         {
-            if(carspot0[i].status==1)
+            if(carspot0[i].status==1)//有车停
             {
                 QString showstr=QString(QLatin1String(carspot0[i].code));
                 if(showstr==ui->editinput->text())
@@ -134,7 +148,7 @@ void takeWindow::on_pbtsearch_clicked()
                     bigsmall=carspot0[i].bigsmall;
                     feebig=parklot0.feebig;
                     feesmall=parklot0.feesmall;
-
+                    //计算费用
                     if(bigsmall==0){
                         if(timelastmin<=30){
                             fee=feebig*(timelasthour)+0.5*feebig;
@@ -160,7 +174,7 @@ void takeWindow::on_pbtsearch_clicked()
                 }
             }
         }
-        if(i==ptr->total)
+        if(i==ptr->total)//遍历了所有
         {
             QMessageBox::warning(this,QString::fromLocal8Bit("提示"),QString::fromLocal8Bit("该车不在库内！"),QMessageBox::Cancel);
         }

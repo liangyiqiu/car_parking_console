@@ -2,6 +2,8 @@
 #include "parkwindow.h"
 #include "ui_pkinfowindow.h"
 
+//该窗口用于显示刚停入的车辆信息
+
 pkinfoWindow::pkinfoWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::pkinfoWindow)
