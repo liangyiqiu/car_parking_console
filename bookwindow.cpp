@@ -56,7 +56,7 @@ void bookWindow::on_pbtbook_clicked()
     if(timediff>60)
         QMessageBox::warning(this,QString::fromLocal8Bit("警告"),QString::fromLocal8Bit("预约时间过早"),QMessageBox::Cancel);
 
-    if(timediff>30&&timediff<60)
+    if(timediff>=30&&timediff<=60)
     {
         class parklot parklot0;
         fstream inFile("parklot.dat", ios::binary | ios::in);  //以二进制读模式打开文件
@@ -67,6 +67,7 @@ void bookWindow::on_pbtbook_clicked()
         {
             while(inFile.read((char *)&parklot0, sizeof(parklot0))); //一直读到文件结束
             inFile.close();
+            cout<<"parklot loaded"<<endl;
         }
 
         cout<<parklot0.empty<<endl;
@@ -147,9 +148,12 @@ void bookWindow::on_pbtbook_clicked()
                 outFile1.close();
                 ui->lineEdit->clear();
             }
+            QMessageBox::warning(this,QString::fromLocal8Bit("提示"),QString::fromLocal8Bit("预约成功！"),QMessageBox::Cancel);
             break;
         }
+
         emit sendData();
+
     }
     else
     {

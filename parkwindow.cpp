@@ -64,7 +64,12 @@ void parkWindow::on_pbtaccept_clicked()
             carspot0[i].status=0;
             carspot0[i].bigsmall=0;//ui->cbbigsmall->currentIndex();
             carspot0[i].number=i;
+
         }
+        fstream outFile("spots.dat", ios::out | ios::binary);
+        outFile.write((char*)carspot0, sizeof(carspot0));
+        outFile.close();
+        cout<<"initsuccess"<<endl;
     }
     else
     {

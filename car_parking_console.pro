@@ -26,6 +26,7 @@ CONFIG += c++11
 
 SOURCES += \
         bookwindow.cpp \
+        initwindow.cpp \
         leavewindow.cpp \
         loginwindow.cpp \
         main.cpp \
@@ -35,12 +36,14 @@ SOURCES += \
         registorwindow.cpp \
         searchwindow.cpp \
         setwindow.cpp \
-        takewindow.cpp
+        takewindow.cpp \
+        usereditwindow.cpp
 
 RC_ICONS =car.ico
 
 HEADERS += \
         bookwindow.h \
+        initwindow.h \
         leavewindow.h \
         loginwindow.h \
         mainwindow.h \
@@ -49,10 +52,12 @@ HEADERS += \
         registorwindow.h \
         searchwindow.h \
         setwindow.h \
-        takewindow.h
+        takewindow.h \
+        usereditwindow.h
 
 FORMS += \
         bookwindow.ui \
+        initwindow.ui \
         leavewindow.ui \
         loginwindow.ui \
         mainwindow.ui \
@@ -61,7 +66,8 @@ FORMS += \
         registorwindow.ui \
         searchwindow.ui \
         setwindow.ui \
-        takewindow.ui
+        takewindow.ui \
+        usereditwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

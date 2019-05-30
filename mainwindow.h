@@ -23,6 +23,8 @@ private slots:
     void receiveData();
     void fun_register();
     void fun_about();
+    void fun_init();
+    void fun_useredit();
 
     void on_pbtpark_clicked();
 

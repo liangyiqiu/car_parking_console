@@ -6,7 +6,9 @@
 #include "bookwindow.h"
 #include "ui_mainwindow.h"
 #include "leavewindow.h"
+#include "initwindow.h"
 #include "takewindow.h"
+#include "usereditwindow.h"
 #include "registorwindow.h"
 #include <iostream>
 #include <fstream>
@@ -23,6 +25,8 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->actionlogout,SIGNAL(triggered()),this,SLOT(on_pbtlogout_clicked()));
     connect(ui->actionregister,SIGNAL(triggered()),this,SLOT(fun_register()));
     connect(ui->actionabout,SIGNAL(triggered()),this,SLOT(fun_about()));
+    connect(ui->actioninit,SIGNAL(triggered()),this,SLOT(fun_init()));
+    connect(ui->actionpk,SIGNAL(triggered()),this,SLOT(fun_useredit()));
     refresh();
 }
 
@@ -87,6 +91,15 @@ void MainWindow::refresh()
     ifstream inFile("parklot.dat", ios::binary | ios::in);  //以二进制读模式打开文件
     if (!inFile) {
         cout << "Source file open error." << endl;
+        parklot0.book=0;
+        parklot0.empty=0;
+        parklot0.level=0;
+        parklot0.total=0;
+        parklot0.feebig=0;
+        parklot0.feesmall=0;
+        fstream outFile("parklot.dat", ios::out | ios::binary);
+        outFile.write((char*)&parklot0, sizeof(parklot0));
+        outFile.close();
     }
     else
     {
@@ -133,5 +146,21 @@ void MainWindow::fun_register()
 void MainWindow::fun_about()
 {
     QMessageBox::about(this,QString::fromLocal8Bit("关于"),QString::fromLocal8Bit("开发者：梁逸秋 贾睿\n我们的github链接:\nhttps://github.com/liangyiqiu/car_parking_console"));
+}
+
+void MainWindow::fun_init()
+{
+    initWindow *initwin=new initWindow(this);
+    initwin->setWindowModality(Qt::ApplicationModal);//阻塞除当前窗体之外的所有的窗体
+    initwin->setAttribute(Qt::WA_DeleteOnClose);//关闭时释放内存
+    initwin->show();
+}
+
+void MainWindow::fun_useredit()
+{
+    usereditWindow *ueditwin=new usereditWindow(this);
+    ueditwin->setWindowModality(Qt::ApplicationModal);//阻塞除当前窗体之外的所有的窗体
+    ueditwin->setAttribute(Qt::WA_DeleteOnClose);//关闭时释放内存
+    ueditwin->show();
 }
 
